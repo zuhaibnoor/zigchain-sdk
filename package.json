@@ -1,0 +1,17 @@
+{
+  "name": "zigchain-sdk",
+  "version": "1.0.0",
+  "description": "Minimal ZigChain SDK for consensus module (params only)",
+  "type": "module",
+  "main": "src/main.ts",
+  "scripts": {
+    "start": "ts-node src/main.ts"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2",
+    "ts-node": "^10.9.1"
+  }
+}
