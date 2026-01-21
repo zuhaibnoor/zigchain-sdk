@@ -1,17 +1,19 @@
 {
-  "name": "zigchain-sdk",
+  "name": "mysdk",
   "version": "1.0.0",
-  "description": "Minimal ZigChain SDK for consensus module (params only)",
-  "type": "module",
-  "main": "src/main.ts",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "ts-node src/main.ts"
+    "build": "tsc",
+    "dev": "tsc --watch"
   },
-  "dependencies": {
-    "node-fetch": "^3.3.2"
-  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
   "devDependencies": {
-    "typescript": "^5.2.2",
-    "ts-node": "^10.9.1"
+    "@types/node": "^25.0.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
   }
 }
