@@ -53,5 +53,5 @@
     //-------------------------------
   },
   "include": ["src"],
-  "exclude": ["src/test-consensus.ts", "node_modules"]
+  "exclude": ["src/test-consensus.ts","src/test-bank.ts", "node_modules"]
 }

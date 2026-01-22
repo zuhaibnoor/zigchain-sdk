@@ -3,6 +3,10 @@ export * from './consensus/types.js'
 
 export * from './networks/endpoints.js'
 export * from './networks/types.js'
+
+export * from './bank/ChainBankApi.js'
+export * from './bank/types.js'
+
 export function helloZigChain() {
   return "Hello ZigChain SDK";
 }
