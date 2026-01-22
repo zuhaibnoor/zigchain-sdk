@@ -1,0 +1,1 @@
+{"version":3,"file":"ChainConsensusApi.d.ts","sourceRoot":"","sources":["../../src/consensus/ChainConsensusApi.ts"],"names":[],"mappings":"AAuBA,OAAO,KAAK,EAAE,gBAAgB,EAAE,MAAM,0BAA0B,CAAA;AAGhE,qBAAa,iBAAiB;IAC5B,OAAO,CAAC,MAAM,CAAY;gBAEd,SAAS,EAAE,gBAAgB;IAIvC;;OAEG;IACG,oBAAoB,CAAC,OAAO,CAAC,EAAE;QAAE,MAAM,CAAC,EAAE,MAAM,CAAA;KAAE;CAazD"}
