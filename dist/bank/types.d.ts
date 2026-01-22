@@ -18,4 +18,28 @@ export interface TotalSupplyResponse {
 export interface SupplyOfResponse {
     amount: Coin;
 }
+export interface DenomMetadata {
+    description: string;
+    denom_units: {
+        denom: string;
+        exponent: number;
+        aliases?: string[];
+    }[];
+    base: string;
+    display: string;
+    name: string;
+    symbol: string;
+}
+export interface DenomMetadataResponse {
+    metadata: DenomMetadata;
+}
+export interface DenomsMetadataResponse {
+    metadatas: DenomMetadata[];
+}
+export interface DenomOwnersResponse {
+    denom_owners: {
+        address: string;
+        balance: Coin;
+    }[];
+}
 //# sourceMappingURL=types.d.ts.map

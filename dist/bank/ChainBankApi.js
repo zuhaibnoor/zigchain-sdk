@@ -32,5 +32,46 @@ export class ChainBankApi {
         const data = await this.client.get(`/cosmos/bank/v1beta1/supply/by_denom?denom=${denom}`);
         return data.amount;
     }
+    //====
+    /**
+   * Fetch metadata for a specific denom
+   * zigchaind query bank denom-metadata <denom>
+   */
+    async fetchDenomMetadata(denom) {
+        const data = await this.client.get(`/cosmos/bank/v1beta1/denoms_metadata/${denom}`);
+        return data;
+    }
+    /**
+     * Query metadata by string (partial match)
+     * zigchaind query bank denom-metadata-by-query-string <query>
+     */
+    async queryDenomMetadataByQuery(query) {
+        const data = await this.client.get(`/cosmos/bank/v1beta1/denoms_metadata_by_query_string?denom=${query}`);
+        return data;
+    }
+    /**
+     * Fetch all owners of a specific denom
+     * zigchaind query bank denom-owners <denom>
+     */
+    async fetchDenomOwners(denom) {
+        const data = await this.client.get(`/cosmos/bank/v1beta1/denom_owners/${denom}`);
+        return data;
+    }
+    /**
+     * Query denom owners by query string (partial match)
+     * zigchaind query bank denom-owners-by-query <query>
+     */
+    async queryDenomOwnersByQuery(query) {
+        const data = await this.client.get(`/cosmos/bank/v1beta1/denom_owners_by_query?denom=${query}`);
+        return data;
+    }
+    /**
+     * Fetch metadata for all registered coin denominations
+     * zigchaind query bank denoms-metadata
+     */
+    async fetchAllDenomsMetadata() {
+        const data = await this.client.get(`/cosmos/bank/v1beta1/denoms_metadata`);
+        return data.metadatas;
+    }
 }
 //# sourceMappingURL=ChainBankApi.js.map

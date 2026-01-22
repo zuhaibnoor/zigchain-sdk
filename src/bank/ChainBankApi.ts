@@ -5,6 +5,9 @@ import type {
   BalancesResponse,
   TotalSupplyResponse,
   SupplyOfResponse,
+  DenomMetadataResponse,
+  DenomOwnersResponse,
+  DenomsMetadataResponse
 } from './types.js'
 
 export class ChainBankApi {
@@ -57,4 +60,63 @@ export class ChainBankApi {
 
     return data.amount
   }
+
+  //====
+  /**
+ * Fetch metadata for a specific denom
+ * zigchaind query bank denom-metadata <denom>
+ */
+async fetchDenomMetadata(denom: string) {
+  const data = await this.client.get<DenomMetadataResponse>(
+    `/cosmos/bank/v1beta1/denoms_metadata/${denom}`
+  )
+  return data
 }
+
+/**
+ * Query metadata by string (partial match)
+ * zigchaind query bank denom-metadata-by-query-string <query>
+ */
+async queryDenomMetadataByQuery(query: string) {
+  const data = await this.client.get<DenomsMetadataResponse>(
+    `/cosmos/bank/v1beta1/denoms_metadata_by_query_string?denom=${query}`
+  )
+  return data
+}
+
+/**
+ * Fetch all owners of a specific denom
+ * zigchaind query bank denom-owners <denom>
+ */
+async fetchDenomOwners(denom: string) {
+  const data = await this.client.get<DenomOwnersResponse>(
+    `/cosmos/bank/v1beta1/denom_owners/${denom}`
+  )
+  return data
+}
+
+/**
+ * Query denom owners by query string (partial match)
+ * zigchaind query bank denom-owners-by-query <query>
+ */
+async queryDenomOwnersByQuery(query: string) {
+  const data = await this.client.get<DenomOwnersResponse>(
+    `/cosmos/bank/v1beta1/denom_owners_by_query?denom=${query}`
+  )
+  return data
+}
+
+/**
+ * Fetch metadata for all registered coin denominations
+ * zigchaind query bank denoms-metadata
+ */
+async fetchAllDenomsMetadata() {
+  const data = await this.client.get<DenomsMetadataResponse>(
+    `/cosmos/bank/v1beta1/denoms_metadata`
+  )
+  return data
+}
+
+
+}
+
