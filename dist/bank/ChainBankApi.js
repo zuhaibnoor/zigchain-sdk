@@ -9,28 +9,28 @@ export class ChainBankApi {
      */
     async fetchBalance(address, denom) {
         const data = await this.client.get(`/cosmos/bank/v1beta1/balances/${address}/by_denom?denom=${denom}`);
-        return data.balance;
+        return data;
     }
     /**
      * zigchaind query bank balances <address>
      */
     async fetchBalances(address) {
         const data = await this.client.get(`/cosmos/bank/v1beta1/balances/${address}`);
-        return data.balances;
+        return data;
     }
     /**
      * zigchaind query bank total-supply
      */
     async fetchTotalSupply() {
         const data = await this.client.get('/cosmos/bank/v1beta1/supply');
-        return data.supply;
+        return data;
     }
     /**
      * zigchaind query bank total-supply-of <denom>
      */
     async fetchSupplyOf(denom) {
         const data = await this.client.get(`/cosmos/bank/v1beta1/supply/by_denom?denom=${denom}`);
-        return data.amount;
+        return data;
     }
     //====
     /**
@@ -71,7 +71,39 @@ export class ChainBankApi {
      */
     async fetchAllDenomsMetadata() {
         const data = await this.client.get(`/cosmos/bank/v1beta1/denoms_metadata`);
-        return data.metadatas;
+        return data;
+    }
+    //=======================================
+    /**
+     * zigchaind query bank send-enabled
+     */
+    async fetchSendEnabled() {
+        const data = await this.client.get('/cosmos/bank/v1beta1/send_enabled');
+        return data;
+    }
+    /**
+     * zigchaind query bank spendable-balance <address> <denom>
+     */
+    async fetchSpendableBalance(address, denom) {
+        const data = await this.client.get(`/cosmos/bank/v1beta1/spendable_balances/${address}/by_denom?denom=${denom}`);
+        return data;
+    }
+    //===========================================
+    /**
+     * zigchaind query bank spendable-balances <address>
+     */
+    async fetchSpendableBalances(address) {
+        const data = await this.client.get(`/cosmos/bank/v1beta1/spendable_balances/${address}`);
+        return data;
+    }
+    //=================================================
+    /**
+     * zigchaind query bank params
+     * zigchaind query bank params --height <H>
+     */
+    async fetchParams() {
+        const data = await this.client.get('/cosmos/bank/v1beta1/params');
+        return data;
     }
 }
 //# sourceMappingURL=ChainBankApi.js.map

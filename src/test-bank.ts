@@ -8,11 +8,14 @@ async function main() {
   const endpoints = getNetworkEndpoints(Network.Testnet)
   const bankApi = new ChainBankApi(endpoints)
 
-  const address = 'zig1ywdjacpqw94s3janzanaxvud3wa22dzfl3kjq7' 
+  // const address = 'zig1ywdjacpqw94s3janzanaxvud3wa22dzfl3kjq7' 
+  const address = 'zig1svkn4sqrlz8r6krq96ty6kze54n2ec03u0vat5'
 
-//   console.log('--- Balances ---')
-//   const balances = await bankApi.fetchBalances(address)
-//   console.dir(balances, { depth: null })
+  // console.log('--- Balances ---')
+  // const balances = await bankApi.fetchBalances(address)
+  // console.dir(balances, { depth: null })
+
+
 
 //   console.log('\n--- Balance of specific denom ---')
 //   const balance = await bankApi.fetchBalance(address, 'uzig')
@@ -44,11 +47,31 @@ async function main() {
 //   const ownersQuery = await bankApi.queryDenomOwnersByQuery('uzig')
 //   console.dir(ownersQuery, { depth: null })
 
-  console.log('\n--- All denoms metadata ---')
-  const allMetadata = await bankApi.fetchAllDenomsMetadata()
-  console.dir(allMetadata, { depth: null })
+//   console.log('\n--- All denoms metadata ---')
+//   const allMetadata = await bankApi.fetchAllDenomsMetadata()
+//   console.dir(allMetadata, { depth: null })
+
+  // console.log('\n--- Send enabled ---')
+  // const sendEnabled = await bankApi.fetchSendEnabled()
+  // console.dir(sendEnabled, { depth: null })
+
+  // console.log('\n--- Spendable balance (uzig) ---')
+  // const spendable = await bankApi.fetchSpendableBalance(address, 'uzig')
+  // console.dir(spendable, { depth: null })
+
+
+//======================
+  // console.log('\n--- Spendable balances ---')
+  // const spendableBalances = await bankApi.fetchSpendableBalances(address)
+  // console.dir(spendableBalances, { depth: null })
+//======================
+
+  console.log('\n--- Bank params ---')
+  const paramsAtHeight = await bankApi.fetchParams()
+  console.dir(paramsAtHeight, { depth: null })
+
+
+
 }
-
-
 
 main().catch(console.error)

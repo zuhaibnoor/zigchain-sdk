@@ -7,7 +7,11 @@ import type {
   SupplyOfResponse,
   DenomMetadataResponse,
   DenomOwnersResponse,
-  DenomsMetadataResponse
+  DenomsMetadataResponse,
+  SendEnabledResponse,
+  SpendableBalanceResponse,
+  SpendableBalancesResponse,
+  BankParamsResponse
 } from './types.js'
 
 export class ChainBankApi {
@@ -25,7 +29,7 @@ export class ChainBankApi {
     `/cosmos/bank/v1beta1/balances/${address}/by_denom?denom=${denom}`
   )
 
-  return data.balance
+  return data
   }
 
   /**
@@ -36,7 +40,7 @@ export class ChainBankApi {
       `/cosmos/bank/v1beta1/balances/${address}`
     )
 
-    return data.balances
+    return data
   }
 
   /**
@@ -47,7 +51,7 @@ export class ChainBankApi {
       '/cosmos/bank/v1beta1/supply'
     )
 
-    return data.supply
+    return data
   }
 
   /**
@@ -58,7 +62,7 @@ export class ChainBankApi {
       `/cosmos/bank/v1beta1/supply/by_denom?denom=${denom}`
     )
 
-    return data.amount
+    return data
   }
 
   //====
@@ -117,6 +121,58 @@ async fetchAllDenomsMetadata() {
   return data
 }
 
+
+//=======================================
+/**
+ * zigchaind query bank send-enabled
+ */
+async fetchSendEnabled() {
+  const data = await this.client.get<SendEnabledResponse>(
+    '/cosmos/bank/v1beta1/send_enabled'
+  )
+
+  return data
+}
+
+/**
+ * zigchaind query bank spendable-balance <address> <denom>
+ */
+async fetchSpendableBalance(address: string, denom: string) {
+  const data = await this.client.get<SpendableBalanceResponse>(
+    `/cosmos/bank/v1beta1/spendable_balances/${address}/by_denom?denom=${denom}`
+  )
+
+  return data
+}
+
+
+//===========================================
+/**
+ * zigchaind query bank spendable-balances <address>
+ */
+async fetchSpendableBalances(address: string) {
+  const data = await this.client.get<SpendableBalancesResponse>(
+    `/cosmos/bank/v1beta1/spendable_balances/${address}`
+  )
+
+  return data
+}
+
+//=================================================
+
+/**
+ * zigchaind query bank params
+ * zigchaind query bank params --height <H>
+ */
+async fetchParams() {
+  
+  const data = await this.client.get<BankParamsResponse>(
+    '/cosmos/bank/v1beta1/params',
+  )
+
+  return data
+}
+//======================================================
 
 }
 

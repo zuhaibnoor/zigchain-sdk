@@ -1,24 +1,24 @@
 import type { NetworkEndpoints } from '../networks/endpoints.js';
-import type { DenomMetadataResponse, DenomOwnersResponse, DenomsMetadataResponse } from './types.js';
+import type { BalanceResponse, BalancesResponse, TotalSupplyResponse, SupplyOfResponse, DenomMetadataResponse, DenomOwnersResponse, DenomsMetadataResponse, SendEnabledResponse, SpendableBalanceResponse, SpendableBalancesResponse, BankParamsResponse } from './types.js';
 export declare class ChainBankApi {
     private client;
     constructor(endpoints: NetworkEndpoints);
     /**
      * zigchaind query bank balance <address> <denom>
      */
-    fetchBalance(address: string, denom: string): Promise<import("./types.js").Coin>;
+    fetchBalance(address: string, denom: string): Promise<BalanceResponse>;
     /**
      * zigchaind query bank balances <address>
      */
-    fetchBalances(address: string): Promise<import("./types.js").Coin[]>;
+    fetchBalances(address: string): Promise<BalancesResponse>;
     /**
      * zigchaind query bank total-supply
      */
-    fetchTotalSupply(): Promise<import("./types.js").Coin[]>;
+    fetchTotalSupply(): Promise<TotalSupplyResponse>;
     /**
      * zigchaind query bank total-supply-of <denom>
      */
-    fetchSupplyOf(denom: string): Promise<import("./types.js").Coin>;
+    fetchSupplyOf(denom: string): Promise<SupplyOfResponse>;
     /**
    * Fetch metadata for a specific denom
    * zigchaind query bank denom-metadata <denom>
@@ -43,6 +43,23 @@ export declare class ChainBankApi {
      * Fetch metadata for all registered coin denominations
      * zigchaind query bank denoms-metadata
      */
-    fetchAllDenomsMetadata(): Promise<import("./types.js").DenomMetadata[]>;
+    fetchAllDenomsMetadata(): Promise<DenomsMetadataResponse>;
+    /**
+     * zigchaind query bank send-enabled
+     */
+    fetchSendEnabled(): Promise<SendEnabledResponse>;
+    /**
+     * zigchaind query bank spendable-balance <address> <denom>
+     */
+    fetchSpendableBalance(address: string, denom: string): Promise<SpendableBalanceResponse>;
+    /**
+     * zigchaind query bank spendable-balances <address>
+     */
+    fetchSpendableBalances(address: string): Promise<SpendableBalancesResponse>;
+    /**
+     * zigchaind query bank params
+     * zigchaind query bank params --height <H>
+     */
+    fetchParams(): Promise<BankParamsResponse>;
 }
 //# sourceMappingURL=ChainBankApi.d.ts.map

@@ -46,3 +46,36 @@ export interface DenomOwnersResponse {
     balance: Coin
   }[]
 }
+//===
+export interface SendEnabled {
+  denom: string
+  enabled: boolean
+}
+
+export interface SendEnabledResponse {
+  send_enabled: SendEnabled[]
+}
+
+export interface SpendableBalanceResponse {
+  balance: Coin
+}
+
+export interface SpendableBalancesResponse {
+  balances: Coin[]
+  pagination?: {
+    next_key: string | null
+    total: string
+  }
+}
+
+export interface BankParams {
+  send_enabled: {
+    denom: string
+    enabled: boolean
+  }[]
+  default_send_enabled: boolean
+}
+
+export interface BankParamsResponse {
+  params: BankParams
+}

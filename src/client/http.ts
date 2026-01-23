@@ -21,7 +21,7 @@ export class HttpClient {
 
   async get<T>(
   path: string,
-  headers?: Record<string, string>
+  headers?: HeadersInit
 ): Promise<T> {
   const init: RequestInit = {
     method: 'GET'
