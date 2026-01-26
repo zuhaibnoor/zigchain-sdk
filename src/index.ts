@@ -13,6 +13,10 @@ export * from './block/types.js'
 export * from './block-results/ChainBlockResultsApi.js'
 export * from './block-results/types.js'
 
+export * from './circuit/ChainCircuitApi.js'
+export * from './circuit/types.js'
+
+
 export function helloZigChain() {
   return "Hello ZigChain SDK";
 }

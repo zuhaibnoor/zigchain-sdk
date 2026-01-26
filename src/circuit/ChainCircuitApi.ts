@@ -1,15 +1,15 @@
 import { HttpClient } from "../client/http.js";
 import type { NetworkEndpoints } from "../networks/endpoints.js";
 import type { CircuitAccountResponse, 
-    CircuitAccountsResponse, 
-    DisabledMessagesResponse} from "./types.js";
+    CircuitAccountsResponse } from "./types.js";
 
 export class ChainCircuitApi {
 
    private client : HttpClient
-   
+   private rpcClient: HttpClient
    constructor(endpoints: NetworkEndpoints){
         this.client = new HttpClient(endpoints.lcd)
+        this.rpcClient = new HttpClient(endpoints.rpc)
     }
 
     /**
@@ -30,13 +30,21 @@ export class ChainCircuitApi {
         )
   }
 
-  /**
-   * zigchaind query circuit disabled-list
+   /**
+   * Get disabled messages via direct RPC call
    */
-  async getDisabledMessages() {
-    return this.client.get<DisabledMessagesResponse>(
-      `/cosmos/circuit/v1/disabled_list`
-    )
-}
+    // async getDisabledMessages(): Promise<DisabledMessagesResponse> {
+    // const res = await this.rpcClient.get<{ result: { response: { value: string } } }>(
+    //     '/abci_query?path="/circuit/DisabledMessages"'
+    // )
+    // console.log(res)
+    // if (!res.result?.response?.value) return { disabled_messages: ['ookok'] }
+
+    // // decode base64 using atob
+    // const decoded = atob(res.result.response.value)
+    // const disabled = JSON.parse(decoded)
+
+    // return { disabled_messages: disabled }
+
 
 }
