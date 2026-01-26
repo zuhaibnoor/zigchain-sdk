@@ -2,7 +2,7 @@ import { Network } from './types.js'
 
 export interface NetworkEndpoints {
   lcd: string
-  // rpc: string (added later)
+  rpc: string
 }
 
 export function getNetworkEndpoints(
@@ -12,11 +12,13 @@ export function getNetworkEndpoints(
     case Network.Testnet:
       return {
         lcd: 'https://public-zigchain-testnet-lcd.numia.xyz',
+        rpc: 'https://public-zigchain-testnet-rpc.numia.xyz'
       }
 
     case Network.Mainnet:
       return {
         lcd: 'https://public-zigchain-mainnet-lcd.example.xyz',
+        rpc: 'https://public-zigchain-mainnet-rpc.example.xyz'
       }
 
     default:

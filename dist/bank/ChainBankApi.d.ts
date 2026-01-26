@@ -38,7 +38,6 @@ export declare class ChainBankApi {
      * Query denom owners by query string (partial match)
      * zigchaind query bank denom-owners-by-query <query>
      */
-    queryDenomOwnersByQuery(query: string): Promise<DenomOwnersResponse>;
     /**
      * Fetch metadata for all registered coin denominations
      * zigchaind query bank denoms-metadata

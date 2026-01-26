@@ -6,6 +6,8 @@ export * from './bank/ChainBankApi.js';
 export * from './bank/types.js';
 export * from './block/ChainBlockApi.js';
 export * from './block/types.js';
+export * from './block-results/ChainBlockResultsApi.js';
+export * from './block-results/types.js';
 export function helloZigChain() {
     return "Hello ZigChain SDK";
 }

@@ -61,10 +61,12 @@ export class ChainBankApi {
      * Query denom owners by query string (partial match)
      * zigchaind query bank denom-owners-by-query <query>
      */
-    async queryDenomOwnersByQuery(query) {
-        const data = await this.client.get(`/cosmos/bank/v1beta1/denom_owners_by_query?denom=${query}`);
-        return data;
-    }
+    // async queryDenomOwnersByQuery(query: string) {
+    //   const data = await this.client.get<DenomOwnersResponse>(
+    //     `/cosmos/bank/v1beta1/denom_owners_by_query?denom=${query}`
+    //   )
+    //   return data
+    // }
     /**
      * Fetch metadata for all registered coin denominations
      * zigchaind query bank denoms-metadata
