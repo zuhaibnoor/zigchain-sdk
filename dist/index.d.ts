@@ -8,5 +8,9 @@ export * from './block/ChainBlockApi.js';
 export * from './block/types.js';
 export * from './block-results/ChainBlockResultsApi.js';
 export * from './block-results/types.js';
+export * from './circuit/ChainCircuitApi.js';
+export * from './circuit/types.js';
+export * from './dex/ChainDexApi.js';
+export * from './dex/types.js';
 export declare function helloZigChain(): string;
 //# sourceMappingURL=index.d.ts.map

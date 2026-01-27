@@ -16,6 +16,8 @@ export * from './block-results/types.js'
 export * from './circuit/ChainCircuitApi.js'
 export * from './circuit/types.js'
 
+export * from './dex/ChainDexApi.js'
+export * from './dex/types.js'
 
 export function helloZigChain() {
   return "Hello ZigChain SDK";

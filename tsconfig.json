@@ -53,5 +53,6 @@
     //-------------------------------
   },
   "include": ["src"],
-  "exclude": ["src/test-consensus.ts","src/test-bank.ts","src/test-block.ts", "src/test-block-results.ts", "node_modules"]
+  "exclude": ["src/test-consensus.ts","src/test-bank.ts","src/test-block.ts", "src/test-block-results.ts", 
+  "src/test-Circuit.ts", "src/test-dex.ts","node_modules"]
 }

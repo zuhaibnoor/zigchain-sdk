@@ -1,0 +1,20 @@
+export interface DexPoolResponse {
+  pool: {
+    address: "string",
+    coins: [
+      {
+        amount: "string",
+        denom: "string"
+      }
+    ],
+    creator: "string",
+    fee: 0,
+    formula: "string",
+    lp_token: {
+      amount: "string",
+      denom: "string"
+    },
+    pool_id: "string"
+  }
+}
+

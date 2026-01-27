@@ -2,7 +2,7 @@ import { HttpClient } from '../client/http.js';
 export class ChainBlockResultsApi {
     client;
     constructor(endpoints) {
-        // block-results uses CometBFT RPC, NOT LCD
+        // block-results uses RPC, NOT LCD
         this.client = new HttpClient(endpoints.rpc);
     }
     /**
