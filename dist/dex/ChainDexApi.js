@@ -10,5 +10,11 @@ export class ChainDexApi {
     async fetchPool(poolId) {
         return this.client.get(`/zigchain/dex/pool/${poolId}`);
     }
+    /**
+     * zigchaind cquery dex get-pool-balances <pool-id>
+     */
+    async fetchPoolBalances(poolId) {
+        return this.client.get(`/zigchain/dex/pool-balances/${poolId}`);
+    }
 }
 //# sourceMappingURL=ChainDexApi.js.map
