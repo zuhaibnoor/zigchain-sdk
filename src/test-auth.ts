@@ -1,5 +1,3 @@
-// src/test-auth.ts
-
 import {
   ChainAuthApi,
   getNetworkEndpoints,
@@ -12,17 +10,36 @@ async function main() {
 
   const address = 'zig1svkn4sqrlz8r6krq96ty6kze54n2ec03u0vat5' // replace with real address
 
-  // 1️⃣ Fetch account
+  // Fetch account
   const account = await authApi.fetchAccount(address)
   console.log('Account:')
   console.dir(account, { depth: null })
 
-  // 2️⃣ Fetch account info
+  // Fetch account info
   const info = await authApi.fetchAccountInfo(address)
   console.log('Account Info:')
   console.dir(info, { depth: null })
 
- 
+
+  //===============NOT WORKING=========================
+//   //  Address by account number
+//   const addr = await authApi.fetchAddressByAccountNumber('138553')
+//   console.log('Address from account number:', addr)
+//===============NOT WORKING=========================
+
+
+//   Address bytes → string
+  const addrFromBytes = await authApi.fetchAddressFromBytes(
+    '0A14A3C4...' 
+  )
+  console.log('Address from bytes:', addrFromBytes)
+
+  
+
+
 }
+
+ 
+
 
 main().catch(console.error)
