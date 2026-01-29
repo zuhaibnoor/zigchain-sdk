@@ -1,0 +1,1 @@
+{"version":3,"file":"ChainAuthApi.d.ts","sourceRoot":"","sources":["../../src/auth/ChainAuthApi.ts"],"names":[],"mappings":"AACA,OAAO,KAAK,EAAE,gBAAgB,EAAE,MAAM,0BAA0B,CAAA;AAMhE,qBAAa,YAAY;IACvB,OAAO,CAAC,MAAM,CAAY;gBAEd,SAAS,EAAE,gBAAgB;IAIvC;;OAEG;IACG,YAAY,CAAC,OAAO,EAAE,MAAM;;;;;IAQlC;;;OAGG;IACG,gBAAgB,CAAC,OAAO,EAAE,MAAM;;;;;;CASvC"}

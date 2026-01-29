@@ -12,5 +12,7 @@ export * from './circuit/ChainCircuitApi.js';
 export * from './circuit/types.js';
 export * from './dex/ChainDexApi.js';
 export * from './dex/types.js';
+export * from './auth/ChainAuthApi.js';
+export * from './auth/types.js';
 export declare function helloZigChain(): string;
 //# sourceMappingURL=index.d.ts.map

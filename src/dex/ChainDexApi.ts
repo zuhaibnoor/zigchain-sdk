@@ -1,8 +1,9 @@
 import { HttpClient } from '../client/http.js'
 import type { NetworkEndpoints } from '../networks/endpoints.js'
-import type { DexPoolResponse, 
-            DexPoolBalancesResponse,
-        poolUidResponse,
+import type 
+    { DexPoolResponse, 
+    DexPoolBalancesResponse,
+    poolUidResponse,
     DexParamsResponse } from './types.js'
 
 export class ChainDexApi {
@@ -49,5 +50,35 @@ export class ChainDexApi {
       '/zigchain/dex/params'
     )
   }
+
+//   /**
+//    * zigchaind query dex swap-in
+//    * Calculate how much token you get out for a given input
+//    */
+//   async swapIn(
+//     poolId: string,
+//     tokenIn: string
+//   ){
+//     // return this.client.get<DexSwapInResponse>(
+//     //   `/zigchain/dex/swap_in/${poolId}/${tokenIn}`
+//     // )
+//      return this.client.get<DexSwapInResponse>(
+//       `/zigchain/dex/swap_in?pool_id=${poolId}&token_in=${tokenIn}`
+//     )
+//   }
+
+//   /**
+//    * zigchaind query dex swap-out
+//    * Calculate how much token you need to provide to get a desired output
+//    */
+//   async swapOut(
+//     poolId: string,
+//     tokenOut: string,
+
+//   ) {
+//     return this.client.get<DexSwapOutResponse>(
+//       `/zigchain/dex/swap_out/${poolId}/${tokenOut}`
+//     )
+//   }
 
 }

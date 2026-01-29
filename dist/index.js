@@ -12,6 +12,8 @@ export * from './circuit/ChainCircuitApi.js';
 export * from './circuit/types.js';
 export * from './dex/ChainDexApi.js';
 export * from './dex/types.js';
+export * from './auth/ChainAuthApi.js';
+export * from './auth/types.js';
 export function helloZigChain() {
     return "Hello ZigChain SDK";
 }
