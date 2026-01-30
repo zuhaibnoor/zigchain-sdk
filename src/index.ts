@@ -22,6 +22,8 @@ export * from './dex/types.js'
 export * from './auth/ChainAuthApi.js'
 export * from './auth/types.js'
 
+export * from './authz/ChainAuthzApi.js'
+export * from './authz/types.js'
 
 export function helloZigChain() {
   return "Hello ZigChain SDK";

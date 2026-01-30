@@ -1,4 +1,3 @@
-import { DEFAULT_CIPHERS } from 'node:tls';
 import {
   ChainAuthApi,
   getNetworkEndpoints,
