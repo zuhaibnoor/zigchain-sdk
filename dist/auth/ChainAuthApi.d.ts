@@ -1,4 +1,5 @@
 import type { NetworkEndpoints } from '../networks/endpoints.js';
+import type { AuthParamsResponse, Bech32PrefixResponse, ModuleAccountResponse, ModuleAccountsResponse } from './types.js';
 export declare class ChainAuthApi {
     private client;
     constructor(endpoints: NetworkEndpoints);
@@ -12,7 +13,7 @@ export declare class ChainAuthApi {
     }>;
     /**
      * zigchaind query auth account-info <address>
-     * queries account info which is common to all account types
+     * queries account info which is common to all account types and this info can be used for signing the transactions
      */
     fetchAccountInfo(address: string): Promise<{
         address: string;
@@ -20,5 +21,12 @@ export declare class ChainAuthApi {
         account_number: string;
         sequence: string;
     }>;
+    /**
+   * zigchaind query auth address-by-acc-num <account_number>
+   */
+    fetchBech32Prefix(): Promise<Bech32PrefixResponse>;
+    fetchAccountsByModule(moduleName: string): Promise<ModuleAccountResponse>;
+    fetchModuleAccounts(): Promise<ModuleAccountsResponse>;
+    fetchAuthParams(height?: number): Promise<AuthParamsResponse>;
 }
 //# sourceMappingURL=ChainAuthApi.d.ts.map

@@ -42,7 +42,7 @@ export class ChainAuthApi {
     return data.info
   }
 
- //======================== API NOT WORKING========================
+ //======================== API NOT WORKING=======================================
   /**
  * zigchaind query auth address-by-acc-num <account_number>
  */
@@ -53,54 +53,53 @@ export class ChainAuthApi {
 
     // return data.address
     // }
-//======================== API NOT WORKING========================
-
-    /**
-     * zigchaind query auth address-bytes-to-string <address_bytes>
-     */
-    async fetchAddressFromBytes(addressBytes: string) {
-    const data = await this.client.get<AddressBytesToStringResponse>(
-        `/cosmos/auth/v1beta1/address_bytes_to_string/${addressBytes}`
-    )
-
-    return data.address
-    }
 
 
-    // 1️⃣ address-string-to-bytes
-  async fetchAddressBytes(address: string): Promise<AddressBytesResponse> {
-    return this.client.get<AddressBytesResponse>(
-      `/cosmos/auth/v1beta1/address_bytes/${address}`
-    )
-  }
+  //   /**
+  //    * zigchaind query auth address-bytes-to-string <address_bytes>
+  //    */
+  //   async fetchAddressFromBytes(addressBytes: string) {
+  //   const data = await this.client.get<AddressBytesToStringResponse>(
+  //       `/cosmos/auth/v1beta1/address_bytes_to_string/${addressBytes}`
+  //   )
 
-  // 2️⃣ bech32-prefix
-  async fetchBech32Prefix(): Promise<Bech32PrefixResponse> {
+  //   return data.address
+  //   }
+
+
+  //   // address-string-to-bytes
+  // async fetchAddressBytes(address: string) {
+  //   return this.client.get<AddressBytesResponse>(
+  //     `/cosmos/auth/v1beta1/address_bytes/${address}`
+  //   )
+  // }
+
+  //======================== API NOT WORKING=======================================================
+
+  // bech32-prefix
+  async fetchBech32Prefix() {
     return this.client.get<Bech32PrefixResponse>(
       `/cosmos/auth/v1beta1/bech32`
     )
   }
 
-  // 3️⃣ module-account
-  async fetchModuleAccount(
-    moduleName: string
-  ): Promise<ModuleAccountResponse> {
+  // module-account
+  async fetchAccountsByModule(
+    moduleName: string) {
     return this.client.get<ModuleAccountResponse>(
       `/cosmos/auth/v1beta1/module_accounts/${moduleName}`
     )
   }
 
-  // 4️⃣ module-accounts
+  // module-accounts
   async fetchModuleAccounts(): Promise<ModuleAccountsResponse> {
     return this.client.get<ModuleAccountsResponse>(
       `/cosmos/auth/v1beta1/module_accounts`
     )
   }
 
-  // 5️⃣ params (supports --height)
-  async fetchAuthParams(
-    height?: number
-  ): Promise<AuthParamsResponse> {
+  // params (supports --height)
+  async fetchAuthParams( height?: number ) {
     const headers = height
       ? { 'x-cosmos-block-height': height.toString() }
       : undefined
