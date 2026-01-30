@@ -24,7 +24,6 @@ export class ChainFactoryApi {
     return data
   }
 
- 
 
   /**
    * zigchaind query factory denoms-by-admin <address>
@@ -42,9 +41,8 @@ export class ChainFactoryApi {
    */
   async fetchDenom(denom: string) {
     const data = await this.client.get<ShowDenomResponse>(
-      `/cosmos/tokenfactory/v1beta1/denoms/${denom}`
+      `/zigchain/factory/denom/${denom}`
     )
-
     return data
   }
 
@@ -53,21 +51,12 @@ export class ChainFactoryApi {
    */
   async fetchDenomAuth(denom: string) {
     const data = await this.client.get<DenomAuthResponse>(
-      `/cosmos/tokenfactory/v1beta1/denoms/${denom}/authority_metadata`
-    )
+      `/zigchain/factory/denom_auth/${denom}` )
 
     return data
   }
 
-  /**
-   * zigchaind query factory list-denom-auth
-   */
-  async fetchAllDenomAuths() {
-    const data = await this.client.get<ListDenomAuthResponse>(
-      '/cosmos/tokenfactory/v1beta1/denom_authority_metadata'
-    )
-
-    return data
-  }
+ 
+  
 }
 

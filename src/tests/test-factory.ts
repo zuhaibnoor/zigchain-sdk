@@ -14,18 +14,16 @@ async function main() {
 //   console.log('\n📦 Factory Params')
 //   console.log(await factoryApi.fetchParams())
 
-  console.log('\n👤 Denoms by Admin')
-  console.log(await factoryApi.fetchDenomsByAdmin(denom_admin))
+//   console.log('\n👤 Denoms by Admin')
+//   console.log(await factoryApi.fetchDenomsByAdmin(denom_admin))
 
-//   const denom = 'factory/zig1xxx/mytoken'
 //   console.log('\n🏷 Show Denom')
 //   console.log(await factoryApi.fetchDenom(denom))
 
-//   console.log('\n🔐 Denom Auth')
-//   console.log(await factoryApi.fetchDenomAuth(denom))
+  console.log('\n🔐 Denom Auth')
+  console.log(await factoryApi.fetchDenomAuth(denom))
 
-//   console.log('\n📋 All Denom Auths')
-//   console.log(await factoryApi.fetchAllDenomAuths())
+
 }
 
 main()

@@ -1,4 +1,7 @@
-/* Factory module response types */
+export interface Pagination {
+  next_key: string | null
+  total?: string
+}
 
 export interface FactoryParamsResponse {
   params: Record<string, unknown>
@@ -19,6 +22,7 @@ export interface DenomsByAdminResponse {
 
 export interface ListDenomResponse {
   denoms: string[]
+  pagination?: Pagination
 }
 
 export interface ShowDenomResponse {
