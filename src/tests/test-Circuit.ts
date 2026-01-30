@@ -2,7 +2,7 @@ import {
     ChainCircuitApi,
     getNetworkEndpoints,
     Network
-} from "../dist/index.js"
+} from "../../dist/index.js"
 
 async function main(){
 

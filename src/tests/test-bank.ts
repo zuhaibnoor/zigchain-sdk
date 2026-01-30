@@ -2,7 +2,7 @@ import {
   ChainBankApi,
   getNetworkEndpoints,
   Network,
-} from '../dist/index.js'
+} from '../../dist/index.js'
 
 async function main() {
   const endpoints = getNetworkEndpoints(Network.Testnet)

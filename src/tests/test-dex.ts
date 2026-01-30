@@ -2,7 +2,7 @@ import {
     Network,
     getNetworkEndpoints,
     ChainDexApi
-} from '../dist/index.js'
+} from '../../dist/index.js'
 
 async function main(){
     const endpoints = getNetworkEndpoints(Network.Testnet)
