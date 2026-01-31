@@ -14,5 +14,9 @@ export * from './dex/ChainDexApi.js';
 export * from './dex/types.js';
 export * from './auth/ChainAuthApi.js';
 export * from './auth/types.js';
+export * from './authz/ChainAuthzApi.js';
+export * from './authz/types.js';
+export * from './factory/ChainFactoryApi.js';
+export * from './factory/types.js';
 export declare function helloZigChain(): string;
 //# sourceMappingURL=index.d.ts.map

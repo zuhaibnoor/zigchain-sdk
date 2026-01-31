@@ -38,26 +38,26 @@ export class ChainAuthApi {
     //   )
     //   return data.address
     //   }
-    //   // 1️⃣ address-string-to-bytes
+    //   // address-string-to-bytes
     // async fetchAddressBytes(address: string) {
     //   return this.client.get<AddressBytesResponse>(
     //     `/cosmos/auth/v1beta1/address_bytes/${address}`
     //   )
     // }
     //======================== API NOT WORKING=======================================================
-    // 2️⃣ bech32-prefix
+    // bech32-prefix
     async fetchBech32Prefix() {
         return this.client.get(`/cosmos/auth/v1beta1/bech32`);
     }
-    // 3️⃣ module-account
+    // module-account
     async fetchAccountsByModule(moduleName) {
         return this.client.get(`/cosmos/auth/v1beta1/module_accounts/${moduleName}`);
     }
-    // 4️⃣ module-accounts
+    // module-accounts
     async fetchModuleAccounts() {
         return this.client.get(`/cosmos/auth/v1beta1/module_accounts`);
     }
-    // 5️⃣ params (supports --height)
+    // params (supports --height)
     async fetchAuthParams(height) {
         const headers = height
             ? { 'x-cosmos-block-height': height.toString() }
