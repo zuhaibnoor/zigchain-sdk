@@ -1,35 +1,28 @@
 export interface ProposalResponse {
-  proposal: any
+    proposal: any;
 }
-
 export interface ProposalsResponse {
-  proposals: any[]
+    proposals: any[];
 }
-
 export interface VoteResponse {
-  vote: any
+    vote: any;
 }
-
 export interface VotesResponse {
-  votes: any[]
+    votes: any[];
 }
-
 export interface DepositResponse {
-  deposit: any
+    deposit: any;
 }
-
 export interface DepositsResponse {
-  deposits: any[]
+    deposits: any[];
 }
-
 export interface TallyResponse {
-  tally: any
+    tally: any;
 }
-
 export interface GovParamsResponse {
-  params: any
+    params: any;
 }
-
 export interface ConstitutionResponse {
-  constitution: string
+    constitution: string;
 }
+//# sourceMappingURL=types.d.ts.map

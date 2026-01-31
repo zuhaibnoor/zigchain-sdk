@@ -18,5 +18,7 @@ export * from './authz/ChainAuthzApi.js';
 export * from './authz/types.js';
 export * from './factory/ChainFactoryApi.js';
 export * from './factory/types.js';
+export * from './gov/ChainGovApi.js';
+export * from './gov/types.js';
 export declare function helloZigChain(): string;
 //# sourceMappingURL=index.d.ts.map

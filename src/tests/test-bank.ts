@@ -11,11 +11,9 @@ async function main() {
   // const address = 'zig1ywdjacpqw94s3janzanaxvud3wa22dzfl3kjq7' 
   const address = 'zig1svkn4sqrlz8r6krq96ty6kze54n2ec03u0vat5'
 
-  // console.log('--- Balances ---')
-  // const balances = await bankApi.fetchBalances(address)
-  // console.dir(balances, { depth: null })
-
-
+  console.log('--- Balances ---')
+  const balances = await bankApi.fetchBalances(address)
+  console.dir(balances, { depth: null })
 
 //   console.log('\n--- Balance of specific denom ---')
 //   const balance = await bankApi.fetchBalance(address, 'uzig')
@@ -66,9 +64,9 @@ async function main() {
   // console.dir(spendableBalances, { depth: null })
 //======================
 
-  console.log('\n--- Bank params ---')
-  const paramsAtHeight = await bankApi.fetchParams()
-  console.dir(paramsAtHeight, { depth: null })
+  // console.log('\n--- Bank params ---')
+  // const paramsAtHeight = await bankApi.fetchParams()
+  // console.dir(paramsAtHeight, { depth: null })
 
 
 
