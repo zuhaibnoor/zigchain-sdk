@@ -22,6 +22,8 @@ export * from './gov/ChainGovApi.js';
 export * from './gov/types.js';
 export * from './mint/ChainMintApi.js';
 export * from './mint/types.js';
+export * from './slashing/ChainSlashingApi.js';
+export * from './slashing/types.js';
 export function helloZigChain() {
     return "Hello ZigChain SDK";
 }
