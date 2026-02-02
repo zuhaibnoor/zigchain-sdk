@@ -25,34 +25,42 @@ export class ChainGovApi {
         const data = await this.client.get('/cosmos/gov/v1/proposals');
         return data;
     }
-    /**
-     * zigchaind query gov vote <proposal_id> <voter>
-     */
-    async fetchVote(proposalId, voter) {
-        const data = await this.client.get(`/cosmos/gov/v1/proposals/${proposalId}/votes/${voter}`);
-        return data;
-    }
-    /**
-     * zigchaind query gov votes <proposal_id>
-     */
-    async fetchVotes(proposalId) {
-        const data = await this.client.get(`/cosmos/gov/v1/proposals/${proposalId}/votes`);
-        return data;
-    }
-    /**
-     * zigchaind query gov deposit <proposal_id> <depositor>
-     */
-    async fetchDeposit(proposalId, depositor) {
-        const data = await this.client.get(`/cosmos/gov/v1/proposals/${proposalId}/deposits/${depositor}`);
-        return data;
-    }
-    /**
-     * zigchaind query gov deposits <proposal_id>
-     */
-    async fetchDeposits(proposalId) {
-        const data = await this.client.get(`/cosmos/gov/v1/proposals/${proposalId}/deposits`);
-        return data;
-    }
+    // /**
+    //  * zigchaind query gov vote <proposal_id> <voter>
+    //  */
+    // async fetchVote(proposalId: string | number, voter: string) {
+    //   const data = await this.client.get<VoteResponse>(
+    //     `/cosmos/gov/v1/proposals/${proposalId}/votes/${voter}`
+    //   )
+    //   return data
+    // }
+    // /**
+    //  * zigchaind query gov votes <proposal_id>
+    //  */
+    // async fetchVotes(proposalId: string | number) {
+    //   const data = await this.client.get<VotesResponse>(
+    //     `/cosmos/gov/v1/proposals/${proposalId}/votes`
+    //   )
+    //   return data
+    // }
+    // /**
+    //  * zigchaind query gov deposit <proposal_id> <depositor>
+    //  */
+    // async fetchDeposit(proposalId: string | number, depositor: string) {
+    //   const data = await this.client.get<DepositResponse>(
+    //     `/cosmos/gov/v1/proposals/${proposalId}/deposits/${depositor}`
+    //   )
+    //   return data
+    // }
+    // /**
+    //  * zigchaind query gov deposits <proposal_id>
+    //  */
+    // async fetchDeposits(proposalId: string | number) {
+    //   const data = await this.client.get<DepositsResponse>(
+    //     `/cosmos/gov/v1/proposals/${proposalId}/deposits`
+    //   )
+    //   return data
+    // }
     /**
      * zigchaind query gov tally <proposal_id>
      */
@@ -63,8 +71,8 @@ export class ChainGovApi {
     /**
      * zigchaind query gov params
      */
-    async fetchParams() {
-        const data = await this.client.get('/cosmos/gov/v1/params');
+    async fetchParams(params_type) {
+        const data = await this.client.get(`/cosmos/gov/v1/params/${params_type}`);
         return data;
     }
 }

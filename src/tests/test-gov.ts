@@ -22,11 +22,15 @@ async function main() {
 
 //   console.log('\n📊 Tally')
 //   console.log(await govApi.fetchTally(proposalId))
-
-  console.log('\nProposal votes')
-  console.dir(await govApi.fetchVotes(proposalId), {depth:null})
-
   
+  // console.log('\n Params (voting)')
+  // console.log(await govApi.fetchParams("voting"))
+
+  // console.log('\n Params (tallying)')
+  // console.log(await govApi.fetchParams("tallying"))
+
+  console.log('\n Params (deposit)')
+  console.log(await govApi.fetchParams("deposit"))  
 
 }
 

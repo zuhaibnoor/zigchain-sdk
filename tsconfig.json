@@ -55,5 +55,5 @@
   "include": ["src"],
   "exclude": ["src/tests/test-consensus.ts","src/tests/test-bank.ts","src/tests/test-block.ts", "src/tests/test-block-results.ts", 
   "src/tests/test-Circuit.ts", "src/tests/test-dex.ts", "src/tests/test-auth.ts","src/tests/test-factory.ts",
-  "src/tests/test-gov.ts","node_modules"]
+  "src/tests/test-gov.ts", "src/tests/test-mint.ts","node_modules"]
 }
