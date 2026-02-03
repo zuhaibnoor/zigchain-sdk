@@ -20,10 +20,10 @@ export class ChainStakingApi {
     validatorAddress: string
   ) {
     const data = await this.client.get<{ delegation_response: DelegationResponse }>(
-      `/cosmos/staking/v1beta1/delegations/${delegatorAddress}/validators/${validatorAddress}`
+      `/cosmos/staking/v1beta1/delegators/${delegatorAddress}/validators/${validatorAddress}`
     )
 
-    return data.delegation_response
+    return data
   }
 
   /**
@@ -34,6 +34,14 @@ export class ChainStakingApi {
       `/cosmos/staking/v1beta1/delegations/${delegatorAddress}`
     )
 
-    return data.delegation_responses
+    return data
   }
+
+  async fetchValidatorDelegations(validator_addr: string){
+    const data = await this.client.get(
+      `/cosmos/staking/v1beta1/validators/${validator_addr}/delegations`
+    )
+    return data
+  }
+
 }

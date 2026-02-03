@@ -37,6 +37,9 @@ export * from './mint/types.js'
 export * from './slashing/ChainSlashingApi.js'
 export * from './slashing/types.js'
 
+export * from './staking/ChainStakingApi.js'
+export * from './staking/types.js'
+
 export function helloZigChain() {
   return "Hello ZigChain SDK";
 }
