@@ -38,5 +38,26 @@ export class ChainStakingApi {
         const data = await this.client.get(`/cosmos/staking/v1beta1/delegators/${delegatorAddress}/validators`);
         return data;
     }
+    /**
+     * zigchaind query staking historical-info
+     */
+    async fetchHistoricalInfo(height) {
+        const data = await this.client.get(`/cosmos/staking/v1beta1/historical_info/${height}`);
+        return data;
+    }
+    /**
+     * zigchaind query staking params
+     */
+    async fetchStakingParams() {
+        const data = await this.client.get('/cosmos/staking/v1beta1/params');
+        return data;
+    }
+    /**
+     * zigchaind query staking pool
+     */
+    async fetchStakingPool() {
+        const data = await this.client.get('/cosmos/staking/v1beta1/pool');
+        return data;
+    }
 }
 //# sourceMappingURL=ChainStakingApi.js.map

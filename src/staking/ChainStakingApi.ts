@@ -5,7 +5,10 @@ import type {
   DelegationsResponse,
   DelegationsToResponse,
   DelegatorValidatorResponse,
-  DelegatorValidatorsResponse
+  DelegatorValidatorsResponse,
+  HistoricalInfoResponse,
+  StakingParamsResponse,
+  StakingPoolResponse
 } from './types.js'
 
 export class ChainStakingApi {
@@ -41,7 +44,7 @@ export class ChainStakingApi {
   }
 
   async fetchValidatorDelegations(validator_addr: string){
-    const data = await this.client.get(
+    const data = await this.client.get<DelegationsToResponse>(
       `/cosmos/staking/v1beta1/validators/${validator_addr}/delegations`
     )
     return data
@@ -75,6 +78,38 @@ export class ChainStakingApi {
     return data
   }
 
+  /**
+   * zigchaind query staking historical-info
+   */
+  async fetchHistoricalInfo(height: number | string) {
+    const data = await this.client.get<HistoricalInfoResponse>(
+      `/cosmos/staking/v1beta1/historical_info/${height}`
+    )
+
+    return data
+  }
+
+  /**
+   * zigchaind query staking params
+   */
+  async fetchStakingParams() {
+    const data = await this.client.get<StakingParamsResponse>(
+      '/cosmos/staking/v1beta1/params'
+    )
+
+    return data
+  }
+
+  /**
+   * zigchaind query staking pool
+   */
+  async fetchStakingPool() {
+    const data = await this.client.get<StakingPoolResponse>(
+      '/cosmos/staking/v1beta1/pool'
+    )
+
+    return data
+  }
   
 
 }

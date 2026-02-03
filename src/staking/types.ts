@@ -57,3 +57,35 @@ export interface DelegatorValidatorResponse {
 export interface DelegatorValidatorsResponse {
   validators: Validator[]
 }
+
+export interface HistoricalInfoResponse {
+  hist: {
+    header: {
+      height: string
+      time: string
+      chain_id: string
+    }
+    valset: Validator[]
+  }
+}
+
+export interface StakingParams {
+  unbonding_time: string
+  max_validators: number
+  max_entries: number
+  historical_entries: number
+  bond_denom: string
+}
+
+export interface StakingParamsResponse {
+  params: StakingParams
+}
+
+export interface StakingPool {
+  not_bonded_tokens: string
+  bonded_tokens: string
+}
+
+export interface StakingPoolResponse {
+  pool: StakingPool
+}

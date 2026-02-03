@@ -1,5 +1,5 @@
 import type { NetworkEndpoints } from '../networks/endpoints.js';
-import type { DelegationResponse, DelegationsResponse, DelegatorValidatorResponse, DelegatorValidatorsResponse } from './types.js';
+import type { DelegationResponse, DelegationsResponse, DelegationsToResponse, DelegatorValidatorResponse, DelegatorValidatorsResponse, HistoricalInfoResponse, StakingParamsResponse, StakingPoolResponse } from './types.js';
 export declare class ChainStakingApi {
     private client;
     constructor(endpoints: NetworkEndpoints);
@@ -13,7 +13,7 @@ export declare class ChainStakingApi {
      * zigchaind query staking delegations
      */
     fetchDelegations(delegatorAddress: string): Promise<DelegationsResponse>;
-    fetchValidatorDelegations(validator_addr: string): Promise<unknown>;
+    fetchValidatorDelegations(validator_addr: string): Promise<DelegationsToResponse>;
     /**
      * zigchaind query staking delegator-validator
      * Query validator info for given delegator validator pair
@@ -24,5 +24,17 @@ export declare class ChainStakingApi {
      * Query all validators info for given delegator address
      */
     fetchDelegatorValidators(delegatorAddress: string): Promise<DelegatorValidatorsResponse>;
+    /**
+     * zigchaind query staking historical-info
+     */
+    fetchHistoricalInfo(height: number | string): Promise<HistoricalInfoResponse>;
+    /**
+     * zigchaind query staking params
+     */
+    fetchStakingParams(): Promise<StakingParamsResponse>;
+    /**
+     * zigchaind query staking pool
+     */
+    fetchStakingPool(): Promise<StakingPoolResponse>;
 }
 //# sourceMappingURL=ChainStakingApi.d.ts.map
