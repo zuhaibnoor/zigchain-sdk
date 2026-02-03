@@ -22,5 +22,21 @@ export class ChainStakingApi {
         const data = await this.client.get(`/cosmos/staking/v1beta1/validators/${validator_addr}/delegations`);
         return data;
     }
+    /**
+     * zigchaind query staking delegator-validator
+     * Query validator info for given delegator validator pair
+     */
+    async fetchDelegatorValidator(delegatorAddress, validatorAddress) {
+        const data = await this.client.get(`/cosmos/staking/v1beta1/delegators/${delegatorAddress}/validators/${validatorAddress}`);
+        return data;
+    }
+    /**
+     * zigchaind query staking delegator-validators
+     * Query all validators info for given delegator address
+     */
+    async fetchDelegatorValidators(delegatorAddress) {
+        const data = await this.client.get(`/cosmos/staking/v1beta1/delegators/${delegatorAddress}/validators`);
+        return data;
+    }
 }
 //# sourceMappingURL=ChainStakingApi.js.map

@@ -2,7 +2,10 @@ import { HttpClient } from '../client/http.js'
 import type { NetworkEndpoints } from '../networks/endpoints.js'
 import type {
   DelegationResponse,
-  DelegationsResponse
+  DelegationsResponse,
+  DelegationsToResponse,
+  DelegatorValidatorResponse,
+  DelegatorValidatorsResponse
 } from './types.js'
 
 export class ChainStakingApi {
@@ -43,5 +46,35 @@ export class ChainStakingApi {
     )
     return data
   }
+
+
+  /**
+   * zigchaind query staking delegator-validator
+   * Query validator info for given delegator validator pair
+   */
+  async fetchDelegatorValidator(
+    delegatorAddress: string,
+    validatorAddress: string
+  ) {
+    const data = await this.client.get<DelegatorValidatorResponse>(
+      `/cosmos/staking/v1beta1/delegators/${delegatorAddress}/validators/${validatorAddress}`
+    )
+
+    return data
+  }
+
+  /**
+   * zigchaind query staking delegator-validators
+   * Query all validators info for given delegator address
+   */
+  async fetchDelegatorValidators(delegatorAddress: string) {
+    const data = await this.client.get<DelegatorValidatorsResponse>(
+      `/cosmos/staking/v1beta1/delegators/${delegatorAddress}/validators`
+    )
+
+    return data
+  }
+
+  
 
 }
