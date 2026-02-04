@@ -59,5 +59,47 @@ export class ChainStakingApi {
         const data = await this.client.get('/cosmos/staking/v1beta1/pool');
         return data;
     }
+    /**
+     * zigchaind query staking redelegation
+    */
+    async fetchRedelegation(delegator_addr) {
+        const data = await this.client.get(`/cosmos/staking/v1beta1/delegators/${delegator_addr}/redelegations`);
+        return data;
+    }
+    /**
+     * zigchaind query staking unbonding-delegation
+     */
+    async fetchUnbondingDelegation(delegator, validator) {
+        const data = await this.client.get(`/cosmos/staking/v1beta1/validators/${validator}/delegations/${delegator}/unbonding_delegation`);
+        return data;
+    }
+    /**
+     * zigchaind query staking unbonding-delegations
+     */
+    async fetchUnbondingDelegations(delegator) {
+        const data = await this.client.get(`/cosmos/staking/v1beta1/validators/${delegator}/unbonding_delegations`);
+        return data;
+    }
+    /**
+    * zigchaind query staking unbonding-delegations-from
+    */
+    async fetchUnbondingDelegationsFrom(validator) {
+        const data = await this.client.get(`/cosmos/staking/v1beta1/validators/${validator}/delegations/unbonding`);
+        return data;
+    }
+    /**
+     * zigchaind query staking validator
+     */
+    async fetchValidator(validator) {
+        const data = await this.client.get(`/cosmos/staking/v1beta1/validators/${validator}`);
+        return data;
+    }
+    /**
+     * zigchaind query staking validators
+     */
+    async fetchValidators() {
+        const data = await this.client.get('/cosmos/staking/v1beta1/validators');
+        return data;
+    }
 }
 //# sourceMappingURL=ChainStakingApi.js.map

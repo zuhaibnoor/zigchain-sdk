@@ -8,7 +8,14 @@ import type {
   DelegatorValidatorsResponse,
   HistoricalInfoResponse,
   StakingParamsResponse,
-  StakingPoolResponse
+  StakingPoolResponse,
+  RedelegationResponse,
+  UnbondingDelegationResponse,
+  UnbondingDelegationsResponse,
+  UnbondingFromValidatorResponse,
+  ValidatorResponse,
+  ValidatorsResponse
+
 } from './types.js'
 
 export class ChainStakingApi {
@@ -111,5 +118,74 @@ export class ChainStakingApi {
     return data
   }
   
+  /**
+   * zigchaind query staking redelegation
+  */
+  async fetchRedelegation(
+    delegator_addr: string,
+  ) {
+    const data = await this.client.get<RedelegationResponse>(
+      `/cosmos/staking/v1beta1/delegators/${delegator_addr}/redelegations`
+    )
+    return data
+  }
+
+  /**
+   * zigchaind query staking unbonding-delegation
+   */
+  async fetchUnbondingDelegation(
+    delegator: string,
+    validator: string
+  ) {
+    const data = await this.client.get<UnbondingDelegationResponse>(
+      `/cosmos/staking/v1beta1/validators/${validator}/delegations/${delegator}/unbonding_delegation`
+    )
+
+    return data
+  }
+
+  /**
+   * zigchaind query staking unbonding-delegations
+   */
+  async fetchUnbondingDelegations(delegator: string) {
+    const data = await this.client.get<UnbondingDelegationsResponse>(
+      `/cosmos/staking/v1beta1/validators/${delegator}/unbonding_delegations`
+    )
+
+    return data
+  }
+
+   /**
+   * zigchaind query staking unbonding-delegations-from
+   */
+  async fetchUnbondingDelegationsFrom(validator: string) {
+    const data = await this.client.get<UnbondingFromValidatorResponse>(
+      `/cosmos/staking/v1beta1/validators/${validator}/delegations/unbonding`
+    )
+
+    return data
+  }
+
+  /**
+   * zigchaind query staking validator
+   */
+  async fetchValidator(validator: string) {
+    const data = await this.client.get<ValidatorResponse>(
+      `/cosmos/staking/v1beta1/validators/${validator}`
+    )
+
+    return data
+  }
+
+  /**
+   * zigchaind query staking validators
+   */
+  async fetchValidators() {
+    const data = await this.client.get<ValidatorsResponse>(
+      '/cosmos/staking/v1beta1/validators'
+    )
+
+    return data
+  }
 
 }

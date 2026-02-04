@@ -35,18 +35,50 @@ async function main() {
     // const delegatorValidators = await stakingApi.fetchDelegatorValidators(delegator)
     // console.dir(delegatorValidators, { depth: null })
   
-    console.log('\n--- Staking Params ---')
-    const params = await stakingApi.fetchStakingParams()
-    console.dir(params, { depth: null })
+    // console.log('\n--- Staking Params ---')
+    // const params = await stakingApi.fetchStakingParams()
+    // console.dir(params, { depth: null })
 
-    console.log('\n--- Staking Pool ---')
-    const pool = await stakingApi.fetchStakingPool()
-    console.dir(pool, { depth: null })
+    // console.log('\n--- Staking Pool ---')
+    // const pool = await stakingApi.fetchStakingPool()
+    // console.dir(pool, { depth: null })
 
-    console.log('\n--- Historical Info ---')
-    const hist = await stakingApi.fetchHistoricalInfo(4328141)
-    console.dir(hist, { depth: null })
+    // console.log('\n--- Historical Info ---')
+    // const hist = await stakingApi.fetchHistoricalInfo(4328141)
+    // console.dir(hist, { depth: null })
 
+    // const srcVal = 'zigvaloper1...'
+    // const dstVal = 'zigvaloper1...'
+
+    // console.log('\n--- Redelegation ---')
+    // const redelegations = await stakingApi.fetchRedelegation(
+    // delegator
+    // )
+    // console.dir(redelegations, { depth: null })
+
+
+    // console.log('\n--- Unbonding Delegation ---')
+    // const unbond = await stakingApi.fetchUnbondingDelegation(
+    // delegator,
+    // srcVal
+    // )
+    // console.dir(unbond, { depth: null })
+
+    // console.log('\n--- All Unbonding Delegations ---')
+    // const unbonds = await stakingApi.fetchUnbondingDelegations(delegator)
+    // console.dir(unbonds, { depth: null })
+
+  console.log('\n--- Validator Info ---')
+  const val = await stakingApi.fetchValidator(validator)
+  console.dir(val, { depth: null })
+
+  console.log('\n--- All Validators ---')
+  const vals = await stakingApi.fetchValidators()
+  console.dir(vals, {depth: null})
+
+  console.log('\n--- Unbonding Delegations From Validator ---')
+  const unbondingFrom = await stakingApi.fetchUnbondingDelegationsFrom(validator)
+  console.dir(unbondingFrom, { depth: null })
 
 }
 

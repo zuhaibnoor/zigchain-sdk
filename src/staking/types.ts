@@ -89,3 +89,95 @@ export interface StakingPool {
 export interface StakingPoolResponse {
   pool: StakingPool
 }
+
+export interface RedelegationEntry {
+  creation_height: string
+  completion_time: string
+  initial_balance: string
+  shares_dst: string
+}
+
+export interface Redelegation {
+  delegator_address: string
+  validator_src_address: string
+  validator_dst_address: string
+  entries: RedelegationEntry[]
+}
+
+export interface RedelegationResponse {
+  redelegation_responses: Redelegation[]
+}
+
+export interface UnbondingEntry {
+  creation_height: string
+  completion_time: string
+  initial_balance: string
+  balance: string
+}
+
+export interface UnbondingDelegation {
+  delegator_address: string
+  validator_address: string
+  entries: UnbondingEntry[]
+}
+
+export interface UnbondingDelegationResponse {
+  unbond: UnbondingDelegation
+}
+
+export interface UnbondingDelegationsResponse {
+  unbonding_responses: UnbondingDelegation[]
+}
+
+export interface ValidatorDescription {
+  moniker: string
+  identity: string
+  website: string
+  security_contact: string
+  details: string
+}
+
+export interface ValidatorCommission {
+  commission_rates: {
+    rate: string
+    max_rate: string
+    max_change_rate: string
+  }
+  update_time: string
+}
+
+export interface Validator {
+  operator_address: string
+  consensus_pubkey: {
+    '@type': string
+    key: string
+  }
+  jailed: boolean
+  status: string
+  tokens: string
+  delegator_shares: string
+  description: ValidatorDescription
+  commission: ValidatorCommission
+  min_self_delegation: string
+}
+
+export interface ValidatorResponse {
+  validator: Validator
+}
+
+export interface ValidatorsResponse {
+  validators: Validator[]
+}
+
+export interface UnbondingFromValidatorResponse {
+  unbonding_responses: {
+    delegator_address: string
+    validator_address: string
+    entries: {
+      creation_height: string
+      completion_time: string
+      initial_balance: string
+      balance: string
+    }[]
+  }[]
+}
