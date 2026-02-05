@@ -1,107 +1,170 @@
-# Quick Usage Guide
+# ZigChain JavaScript / TypeScript SDK
 
-## Bank Module 
+This SDK provides a simple, developer-friendly way to interact with **ZigChain** using its LCD (REST) endpoints. It is designed to closely follow ZigChain CLI query commands while keeping the API clean, predictable, and easy to use.
 
-Import the Bank API and network endpoints:
+The SDK is modular — each blockchain module (auth, bank, staking, gov, etc.) has its own API class and documentation file.
+
+---
+
+## Installation
+
+Install the SDK using npm:
+
+```bash
+npm install @zuhaibnoor/zigchain-sdk
+```
+
+or with yarn:
+
+```bash
+yarn add @zuhaibnoor/zigchain-sdk
+```
+
+---
+
+## Supported Environments
+
+* Node.js 18+
+* TypeScript & JavaScript
+* Works with CommonJS and ESM
+
+---
+
+## Basic Usage
+
+### 1️⃣ Import the SDK
 
 ```ts
 import {
-  ChainBankApi,
   getNetworkEndpoints,
   Network,
+  ChainConsensusApi
 } from '@zuhaibnoor/zigchain-sdk'
-````
+```
 
-Initialize the Bank API:
+---
+
+### 2️⃣ Select Network
 
 ```ts
 const endpoints = getNetworkEndpoints(Network.Testnet)
-const bankApi = new ChainBankApi(endpoints)
 ```
 
-### Fetch all balances of an address
+Available networks:
+
+* `Network.Mainnet`
+* `Network.Testnet`
+
+---
+
+### 3️⃣ Initialize a Module API
+
+Each module has its own class:
 
 ```ts
-const address = 'zig1xxxxxxxxxxxxxxxxxxxxxxxxxxxx'
-
-const balances = await bankApi.fetchBalances(address)
-console.dir(balances, { depth: null })
+const consensusApi = new ChainConsensusApi(endpoints)
 ```
 
-### Fetch balance of a specific denom
+---
+
+### 4️⃣ Call Query Functions
 
 ```ts
-const balance = await bankApi.fetchBalance(address, 'uzig')
-console.dir(balance, { depth: null })
+const params = await consensusApi.fetchConsensusParams()
+console.log(params)
 ```
 
-### Fetch total supply of all tokens
+---
 
-```ts
-const supply = await bankApi.fetchTotalSupply()
-console.dir(supply, { depth: null })
-````
+## Design Philosophy
 
-### Fetch supply of a specific token denomination
+This SDK follows a few strict design principles:
 
-```ts
-const supplyOf = await bankApi.fetchSupplyOf('uzig')
-console.dir(supplyOf, { depth: null })
+* ✅ One class per Cosmos module
+* ✅ One function per CLI query
+* ✅ Uses **LCD endpoints only**
+* ✅ Minimal abstraction — returns raw chain data
+* ✅ Optional `height` support where applicable
+
+
+This makes it easy to:
+
+* map CLI → SDK usage
+* debug responses
+* extend the SDK safely
+
+---
+
+## Project Structure
+
+```text
+src/
+├── auth/
+│   ├── ChainAuth.ts
+│   └── types.ts
+├── bank/
+├── staking/
+├── gov/
+├── slashing/
+├── mint/
+├── consensus/
+├── ratelimit/
+├── http.ts
+├── network.ts
+└── index.ts
+
+docs/
+├── auth.md
+├── bank.md
+├── staking.md
+├── gov.md
+├── consensus.md
+└── ...
 ```
 
+Each file in the `docs/` folder explains how to use a specific module.
 
-### Fetch metadata of a specific denom
+---
+
+
+## Height-based Queries
+
+Some queries accept a `height` parameter:
 
 ```ts
-const metadata = await bankApi.fetchDenomMetadata('uzig')
-console.dir(metadata, { depth: null })
-````
-
-### Fetch owners of a specific denom
-
-```ts
-const owners = await bankApi.fetchDenomOwners('uzig')
-console.dir(owners, { depth: null })
+await api.fetchParams(123456)
 ```
 
-### Fetch metadata of all denoms
+This internally sets:
 
-```ts
-const allMetadata = await bankApi.fetchAllDenomsMetadata()
-console.dir(allMetadata, { depth: null })
+```
+x-cosmos-block-height
 ```
 
-### Fetch send-enabled denoms
+⚠️ This may fail if the node has pruned historical state.
 
-```ts
-const sendEnabled = await bankApi.fetchSendEnabled()
-console.dir(sendEnabled, { depth: null })
-````
+---
 
-### Fetch spendable balance of a specific denom
+## Module Documentation
 
-```ts
-const spendable = await bankApi.fetchSpendableBalance(address, 'uzig')
-console.dir(spendable, { depth: null })
-```
+Detailed guides for each module are available in the `docs/` folder:
 
-### Fetch all spendable balances of an address
+* `auth.md` – Accounts & authentication
+* `bank.md` – Balances & supply
+* `staking.md` – Validators & delegations
 
-```ts
-const spendableBalances = await bankApi.fetchSpendableBalances(address)
-console.dir(spendableBalances, { depth: null })
-````
+and so on...
 
-### Fetch bank module parameters
+---
 
-```ts
-const paramsAtHeight = await bankApi.fetchParams()
-console.dir(paramsAtHeight, { depth: null })
-```
+## Versioning & Updates
+
+* Patch versions: bug fixes & small improvements
+* Minor versions: new modules or query functions
+* Major versions: breaking API changes
+
+---
 
 
 
-
-
-
-
+If you’re unsure which function maps to which CLI command — check the module docs. The naming closely mirrors `zigchaind query ...` commands.
