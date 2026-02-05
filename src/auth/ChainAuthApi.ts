@@ -3,10 +3,7 @@ import type { NetworkEndpoints } from '../networks/endpoints.js'
 import type {
   AccountResponse,
   AccountInfoResponse,
-  AddressByAccountNumberResponse,
-  AddressBytesToStringResponse,
   AuthParamsResponse,
-  AddressBytesResponse,
   Bech32PrefixResponse,
   ModuleAccountResponse,
   ModuleAccountsResponse
@@ -27,7 +24,7 @@ export class ChainAuthApi {
       `/cosmos/auth/v1beta1/accounts/${address}`
     )
 
-    return data.account
+    return data
   }
 
   /**
@@ -39,7 +36,7 @@ export class ChainAuthApi {
       `/cosmos/auth/v1beta1/account_info/${address}`
     )
 
-    return data.info
+    return data
   }
 
  //======================== API NOT WORKING=======================================
