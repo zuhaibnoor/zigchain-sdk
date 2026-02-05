@@ -1,4 +1,4 @@
-# ZigChain JavaScript / TypeScript SDK
+# ZigChain SDK
 
 This SDK provides a simple, developer-friendly way to interact with **ZigChain** using its LCD (REST) endpoints. It is designed to closely follow ZigChain CLI query commands while keeping the API clean, predictable, and easy to use.
 
