@@ -4,9 +4,7 @@ import type {
   FactoryParamsResponse,
   DenomAuthResponse,
   DenomsByAdminResponse,
-  ListDenomResponse,
   ShowDenomResponse,
-  ListDenomAuthResponse
 } from './types.js'
 
 export class ChainFactoryApi {
@@ -56,7 +54,4 @@ export class ChainFactoryApi {
     return data
   }
 
- 
-  
 }
-
