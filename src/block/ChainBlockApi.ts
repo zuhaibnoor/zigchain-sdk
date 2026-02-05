@@ -1,5 +1,3 @@
-// src/block/ChainBlockApi.ts
-
 import { HttpClient } from '../client/http.js'
 import type { NetworkEndpoints } from '../networks/endpoints.js'
 import type { BlockResponse } from './types.js'
