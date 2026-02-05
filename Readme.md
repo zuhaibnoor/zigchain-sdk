@@ -25,8 +25,7 @@ yarn add @zuhaibnoor/zigchain-sdk
 ## Supported Environments
 
 * Node.js 18+
-* TypeScript & JavaScript
-* Works with CommonJS and ESM
+* TypeScript
 
 ---
 
