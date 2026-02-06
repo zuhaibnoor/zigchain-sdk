@@ -1,4 +1,3 @@
-// src/block/ChainBlockApi.ts
 import { HttpClient } from '../client/http.js';
 export class ChainBlockApi {
     client;

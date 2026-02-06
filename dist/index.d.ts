@@ -26,5 +26,7 @@ export * from './slashing/ChainSlashingApi.js';
 export * from './slashing/types.js';
 export * from './staking/ChainStakingApi.js';
 export * from './staking/types.js';
+export * from './distribution/ChainDistributionApi.js';
+export * from './distribution/types.js';
 export declare function helloZigChain(): string;
 //# sourceMappingURL=index.d.ts.map

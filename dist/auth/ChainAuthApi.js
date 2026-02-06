@@ -9,7 +9,7 @@ export class ChainAuthApi {
      */
     async fetchAccount(address) {
         const data = await this.client.get(`/cosmos/auth/v1beta1/accounts/${address}`);
-        return data.account;
+        return data;
     }
     /**
      * zigchaind query auth account-info <address>
@@ -17,7 +17,7 @@ export class ChainAuthApi {
      */
     async fetchAccountInfo(address) {
         const data = await this.client.get(`/cosmos/auth/v1beta1/account_info/${address}`);
-        return data.info;
+        return data;
     }
     //======================== API NOT WORKING=======================================
     /**
