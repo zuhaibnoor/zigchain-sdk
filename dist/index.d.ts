@@ -28,5 +28,7 @@ export * from './staking/ChainStakingApi.js';
 export * from './staking/types.js';
 export * from './distribution/ChainDistributionApi.js';
 export * from './distribution/types.js';
+export * from './evidence/ChainEvidenceApi.js';
+export * from './evidence/types.js';
 export declare function helloZigChain(): string;
 //# sourceMappingURL=index.d.ts.map
