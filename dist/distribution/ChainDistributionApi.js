@@ -40,5 +40,36 @@ export class ChainDistributionApi {
         const data = await this.client.get('/cosmos/distribution/v1beta1/params');
         return data;
     }
+    //==========================
+    /**
+     * zigchaind query distribution rewards <delegator-address>
+     */
+    async fetchDelegatorRewards(delegator) {
+        return this.client.get(`/cosmos/distribution/v1beta1/delegators/${delegator}/rewards`);
+    }
+    /**
+     * zigchaind query distribution rewards-by-validator
+     */
+    async fetchDelegatorRewardsByValidator(delegator, validator) {
+        return this.client.get(`/cosmos/distribution/v1beta1/delegators/${delegator}/rewards/${validator}`);
+    }
+    /**
+     * zigchaind query distribution slashes <validator-address>
+     */
+    async fetchValidatorSlashes(validator) {
+        return this.client.get(`/cosmos/distribution/v1beta1/validators/${validator}/slashes`);
+    }
+    /**
+     * zigchaind query distribution validator-distribution-info <validator-address>
+     */
+    async fetchValidatorDistributionInfo(validator) {
+        return this.client.get(`/cosmos/distribution/v1beta1/validators/${validator}`);
+    }
+    /**
+     * zigchaind query distribution validator-outstanding-rewards <validator-address>
+     */
+    async fetchValidatorOutstandingRewards(validator) {
+        return this.client.get(`/cosmos/distribution/v1beta1/validators/${validator}/outstanding_rewards`);
+    }
 }
 //# sourceMappingURL=ChainDistributionApi.js.map

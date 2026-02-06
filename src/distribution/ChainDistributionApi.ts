@@ -7,7 +7,12 @@ import type {
   CommunityPoolResponse,
   DelegatorValidators,
   DelegatorWithdrawAddressResponse,
-  DistributionParamsResponse
+  DistributionParamsResponse,
+  DelegatorRewardsResponse,
+  DelegatorRewardsByValidatorResponse,
+  ValidatorSlashesResponse,
+  ValidatorDistributionInfoResponse,
+  ValidatorOutstandingRewardsResponse
 } from './types.js'
 
 export class ChainDistributionApi {
@@ -70,6 +75,55 @@ export class ChainDistributionApi {
     )
 
     return data
+  }
+
+//==========================
+  /**
+   * zigchaind query distribution rewards <delegator-address>
+   */
+  async fetchDelegatorRewards(delegator: string) {
+    return this.client.get<DelegatorRewardsResponse>(
+      `/cosmos/distribution/v1beta1/delegators/${delegator}/rewards`
+    )
+  }
+
+  /**
+   * zigchaind query distribution rewards-by-validator
+   */
+  async fetchDelegatorRewardsByValidator(
+    delegator: string,
+    validator: string
+  ) {
+    return this.client.get<DelegatorRewardsByValidatorResponse>(
+      `/cosmos/distribution/v1beta1/delegators/${delegator}/rewards/${validator}`
+    )
+  }
+
+  /**
+   * zigchaind query distribution slashes <validator-address>
+   */
+  async fetchValidatorSlashes(validator: string) {
+    return this.client.get<ValidatorSlashesResponse>(
+      `/cosmos/distribution/v1beta1/validators/${validator}/slashes`
+    )
+  }
+
+  /**
+   * zigchaind query distribution validator-distribution-info <validator-address>
+   */
+  async fetchValidatorDistributionInfo(validator: string) {
+    return this.client.get<ValidatorDistributionInfoResponse>(
+      `/cosmos/distribution/v1beta1/validators/${validator}`
+    )
+  }
+
+  /**
+   * zigchaind query distribution validator-outstanding-rewards <validator-address>
+   */
+  async fetchValidatorOutstandingRewards(validator: string) {
+    return this.client.get<ValidatorOutstandingRewardsResponse>(
+      `/cosmos/distribution/v1beta1/validators/${validator}/outstanding_rewards`
+    )
   }
 
 }

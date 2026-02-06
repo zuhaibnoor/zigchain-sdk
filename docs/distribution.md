@@ -103,10 +103,87 @@ const params = await distribution.fetchParams()
 
 ---
 
+## `fetchDelegatorRewards(delegator)`
 
+**Purpose:**
+Fetches **all staking rewards** earned by a delegator across **all validators**.
+
+**When to use:**
+Use this when you want a complete view of a delegator’s accumulated rewards before withdrawal.
+
+**CLI equivalent:**
+
+```
+zigchaind query distribution rewards <delegator-address>
+```
 
 ---
-## Summary
+
+## `fetchDelegatorRewardsByValidator(delegator, validator)`
+
+**Purpose:**
+Returns rewards earned by a delegator **from a specific validator only**.
+
+**When to use:**
+Helpful when analyzing reward contribution per validator or building validator-specific dashboards.
+
+**CLI equivalent:**
+
+```
+zigchaind query distribution rewards-by-validator <delegator> <validator>
+```
+
+---
+
+## `fetchValidatorSlashes(validator)`
+
+**Purpose:**
+Fetches **slashing events** applied to a validator, including the slashing fraction and period.
+
+**When to use:**
+Use this to inspect validator misbehavior history and assess validator risk.
+
+**CLI equivalent:**
+
+```
+zigchaind query distribution slashes <validator-address>
+```
+
+---
+
+## `fetchValidatorDistributionInfo(validator)`
+
+**Purpose:**
+Returns a validator’s **distribution overview**, including self-bond rewards and commission earned.
+
+**When to use:**
+Useful for validators or explorers to understand validator earnings structure.
+
+**CLI equivalent:**
+
+```
+zigchaind query distribution validator-distribution-info <validator-address>
+```
+
+---
+
+## `fetchValidatorOutstandingRewards(validator)`
+
+**Purpose:**
+Fetches **unwithdrawn (outstanding) rewards** for a validator and all of its delegations.
+
+**When to use:**
+Use this to check pending rewards that have not yet been withdrawn.
+
+**CLI equivalent:**
+
+```
+zigchaind query distribution validator-outstanding-rewards <validator-address>
+```
+
+---
+
+## 📌 Summary
 
 | Function                        | What it tells you                          |
 | ------------------------------- | ------------------------------------------ |
@@ -115,6 +192,10 @@ const params = await distribution.fetchParams()
 | `fetchDelegatorValidators`      | Validators paying rewards to a delegator   |
 | `fetchDelegatorWithdrawAddress` | Where delegator rewards are withdrawn      |
 | `fetchParams`                   | Network-wide reward distribution rules     |
-
+| `fetchDelegatorRewards`            | Get all staking rewards for a delegator across all validators |
+| `fetchDelegatorRewardsByValidator` | Get delegator rewards from a specific validator               |
+| `fetchValidatorSlashes`            | Query slashing events applied to a validator                  |
+| `fetchValidatorDistributionInfo`   | Fetch validator commission and self-bond rewards              |
+| `fetchValidatorOutstandingRewards` | Get unwithdrawn rewards for a validator                       |
 ---
 
