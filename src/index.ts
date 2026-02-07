@@ -46,6 +46,9 @@ export * from './distribution/types.js'
 export * from './evidence/ChainEvidenceApi.js'
 export * from './evidence/types.js'
 
+export * from './runtime/ChainRuntimeApi.js'
+export * from './runtime/types.js'
+
 export function helloZigChain() {
   return "Hello ZigChain SDK";
 }

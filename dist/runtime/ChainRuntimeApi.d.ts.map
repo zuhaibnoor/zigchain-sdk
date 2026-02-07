@@ -1,0 +1,1 @@
+{"version":3,"file":"ChainRuntimeApi.d.ts","sourceRoot":"","sources":["../../src/runtime/ChainRuntimeApi.ts"],"names":[],"mappings":"AACA,OAAO,KAAK,EAAE,gBAAgB,EAAE,MAAM,0BAA0B,CAAA;AAChE,OAAO,KAAK,EACV,qBAAqB,EAEtB,MAAM,YAAY,CAAA;AAEnB,qBAAa,eAAe;IAC1B,OAAO,CAAC,MAAM,CAAY;gBAEd,SAAS,EAAE,gBAAgB;IAIvC;;;OAGG;IACG,WAAW;CAQlB"}
