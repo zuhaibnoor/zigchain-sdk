@@ -3,8 +3,6 @@
 The **Token Wrapper module** keeps track of ZIG tokens that move **out of ZigChain to other blockchains** and come **back again**.
 It helps the chain maintain balance by **locking tokens when they leave** and **unlocking them when they return**, so no extra tokens are ever created.
 
-This module is **informational only** — it does not move tokens itself, it only shows **what has already happened**.
-
 ---
 
 ## How Token Wrapping Works (Simple Explanation)
@@ -125,8 +123,6 @@ Result:
 
 * **5 ZIG unlocked and returned**
 * **5 ZIG remain locked forever** (because they were spent)
-
-The Token Wrapper module lets anyone **verify these numbers transparently**.
 
 ---
 
