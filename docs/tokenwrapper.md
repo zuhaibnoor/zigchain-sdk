@@ -41,11 +41,6 @@ const tokenWrapperApi = new ChainTokenWrapperApi(endpoints)
 
 Returns basic information about the Token Wrapper module.
 
-**CLI equivalent**
-
-```bash
-zigchaind query tokenwrapper module-info
-```
 
 **Method**
 
@@ -69,12 +64,6 @@ console.log(info)
 ## `fetchParams`
 
 Fetches the **configuration parameters** of the Token Wrapper module.
-
-**CLI equivalent**
-
-```bash
-zigchaind query tokenwrapper params
-```
 
 **Method**
 
@@ -102,12 +91,6 @@ Returns the **total amount of ZIG tokens**:
 
 * Sent **out of ZigChain**
 * Returned **back to ZigChain**
-
-**CLI equivalent**
-
-```bash
-zigchaind query tokenwrapper total-transfers
-```
 
 **Method**
 
