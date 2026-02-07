@@ -32,5 +32,7 @@ export * from './evidence/ChainEvidenceApi.js';
 export * from './evidence/types.js';
 export * from './runtime/ChainRuntimeApi.js';
 export * from './runtime/types.js';
+export * from './tokenwrapper/ChainTokenWrapperApi.js';
+export * from './tokenwrapper/types.js';
 export declare function helloZigChain(): string;
 //# sourceMappingURL=index.d.ts.map
